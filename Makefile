@@ -1,7 +1,8 @@
-NAME = push_swap.a
+NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = push_swap.c
+SRCS = push_swap.c\
+		parse.c
 OBJS = $(SRCS:.c=.o)
 SUBDIRS = printf
 MAKE = make
@@ -14,7 +15,7 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	make -C $(SUBDIRS)
 	cp $(SUBDIRS)/libftprintf.a $(NAME)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)  -lftprintf -L$(SUBDIRS)
+	$(CC) $(CFLAGS) -I. $(OBJS)  -o $(NAME)  -lftprintf -L$(SUBDIRS)
 
 clean:
 	make -C $(SUBDIRS) clean
