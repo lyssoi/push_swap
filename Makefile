@@ -2,7 +2,14 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c\
-		parse.c
+		parse.c\
+		push_swap_atoi.c\
+		commands.c\
+		commands2.c\
+		commands3.c\
+		operations.c\
+		ft_queue.c\
+		sort.c
 OBJS = $(SRCS:.c=.o)
 SUBDIRS = libft
 MAKE = make
