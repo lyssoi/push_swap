@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:37:24 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/05 19:36:49 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/05 20:17:56 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 typedef struct s_stack_node
 {
 	int					num;
+	long long			ordinal_num;
 	//int					idx;
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
