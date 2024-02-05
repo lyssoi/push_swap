@@ -6,13 +6,13 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:37:24 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/02 20:18:49 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:23:11 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-#include "printf/ft_printf.h"
+#include "libft/libft.h"
 #include <stdio.h>
 
 typedef struct s_stack_node

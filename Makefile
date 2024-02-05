@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = push_swap.c\
 		parse.c
 OBJS = $(SRCS:.c=.o)
-SUBDIRS = printf
+SUBDIRS = libft
 MAKE = make
 
 all : $(NAME)
@@ -14,15 +14,15 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	make -C $(SUBDIRS)
-	cp $(SUBDIRS)/libftprintf.a $(NAME)
-	$(CC) $(CFLAGS) -I. $(OBJS)  -o $(NAME)  -lftprintf -L$(SUBDIRS)
+	cp $(SUBDIRS)/libft.a $(NAME)
+	$(CC) $(CFLAGS) -I. $(OBJS)  -o $(NAME)  -lft -L$(SUBDIRS)
 
 clean:
 	make -C $(SUBDIRS) clean
 	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(SUBDIRS)/libftprintf.a
+	rm -f $(SUBDIRS)/libft.a
 	rm -f $(NAME)
 
 re: fclean all

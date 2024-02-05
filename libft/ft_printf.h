@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 10:59:35 by soljeong          #+#    #+#             */
-/*   Updated: 2023/11/04 11:17:06 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:24:30 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define MALLOC_ERROR 0
 # include <stdarg.h>
 # include <unistd.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 int		ft_printf(const char *str, ...);
 char	*ft_basetoa(unsigned long long n, char *base);

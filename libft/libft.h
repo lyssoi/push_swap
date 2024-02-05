@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:39:06 by soljeong          #+#    #+#             */
-/*   Updated: 2023/10/17 19:14:13 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/05 11:18:22 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-
+# include "ft_printf.h"
 typedef struct s_list
 {
 	void			*content;
