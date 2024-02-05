@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:37:24 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/02 19:44:54 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/02 20:18:49 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ t_stack_node	*ft_deque_front(t_stack *stack);
 t_stack_node	*ft_deque_back(t_stack *stack);
 t_stack		*ft_stack_new(void);
 t_stack_node	*ft_stack_new_node(int num);
+void	is_error();
 void	parse(t_stack **stack, int argc, char *argv[]);
 
 #endif

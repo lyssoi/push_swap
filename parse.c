@@ -13,12 +13,18 @@ void	parse(t_stack **stack, int argc, char *argv[]){
 		ft_stackadd_back(stack,node);
 		idx++;
 	}
+	//일단 넣었으니까... 중복체크해야하고, 유효값 체크 해야하고..
+}
+
+void	is_error(){
+	printf("Error\n");
+	exit(0);
 }
 
 void	ft_stackadd_front(t_stack **stack, t_stack_node *new){
 	if (!*stack)
 		return ;
-	new -> next = (*stack)->first;
+	new->next = (*stack)->first;
 	if((*stack)->first)
 		(*stack)->first->prev = new;
 	(*stack)->first = new;

@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:38:07 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/02 19:47:54 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/02 20:19:29 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int main(int argc, char *argv[]){
 		node = node -> next;
 	}
 	node = stack_a->last;
-	node = ft_deque_back(stack_a);
-	node = ft_deque_back(stack_a);
 	while(node){
 		printf("%d", node->num);
 		node = node -> prev;
