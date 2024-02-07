@@ -6,13 +6,27 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 19:41:42 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/07 19:46:31 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/07 20:22:42 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 // n = 3인경우. 하드코딩?!
-1,3,2
-2,3,1
-2,1,3
-3,1,2
-3,2,1
+
+void	simple_sort(t_stack *stack){
+	int result;
+
+	result = stack->first->next->idx - stack->first->idx;
+	if (result == 2 || result == -1)
+	{
+		sa(stack);
+		if (stack->cnt == 2)
+			return ;
+	}
+	if (stack->first->idx == 1)
+		return ;
+	if (stack->first->idx == 2)
+		rra(stack);
+	if (stack->first->idx == 3)
+		ra(stack);
+}

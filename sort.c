@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 19:25:38 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/07 19:27:56 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/07 20:24:39 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	sort(t_stack *a, t_stack *b)
 	size_a = a->cnt;
 	radix = 0;
 	maxdigit = search_digit(a);
+	if (size_a <= 3){
+		simple_sort(a);
+		return ;
+	}
 	while (radix <= maxdigit)
 	{
 		i = 0;

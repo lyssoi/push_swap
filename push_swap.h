@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:37:24 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/07 19:59:33 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/07 20:23:42 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ void			sort(t_stack *a, t_stack *b);
 void			sort_check(t_stack *stack);
 int				search_max(t_stack *stack);
 int				search_digit(t_stack *stack);
+void			simple_sort(t_stack *stack);
 #endif

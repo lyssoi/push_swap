@@ -9,7 +9,8 @@ SRCS = push_swap.c\
 		commands3.c\
 		operations.c\
 		ft_queue.c\
-		sort.c
+		sort.c\
+		smallcase.c
 OBJS = $(SRCS:.c=.o)
 SUBDIRS = libft
 MAKE = make
