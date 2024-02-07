@@ -6,7 +6,7 @@
 /*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 11:57:12 by soljeong          #+#    #+#             */
-/*   Updated: 2024/02/05 13:41:45 by soljeong         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:40:51 by soljeong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ long long	push_swap_atoi(const char *str)
 		if (str[i++] == '-')
 		flag = 1;
 	}
+	if(!str[i])
+		is_error();
 	while (str[i] == '0')
 		i++;
 	start = i;

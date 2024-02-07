@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 SRCS = push_swap.c\
 		parse.c\
 		push_swap_atoi.c\
@@ -17,7 +17,7 @@ MAKE = make
 all : $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c  $< -o $@
 
 $(NAME) : $(OBJS)
 	make -C $(SUBDIRS)

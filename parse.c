@@ -1,68 +1,115 @@
-#include "push_swap.h"
-long long	push_swap_atoi(const char *str);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/07 19:57:53 by soljeong          #+#    #+#             */
+/*   Updated: 2024/02/07 19:59:13 by soljeong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	parse(t_stack *stack, int argc, char *argv[]){
-	int	idx;
+#include "push_swap.h"
+
+void	parse(t_stack *stack, int argc, char *argv[])
+{
+	int		idx;
 	char	**splited;
 
 	idx = 1;
-	while (idx < argc){
+	while (idx < argc)
+	{
 		splited = ft_split(argv[idx], ' ');
-		stack_init(stack,splited);
-		free(splited);
+		stack_init(stack, splited);
+		if (splited)
+			free(splited);
 		idx++;
 	}
+	sort_check(stack);
+	assign_idx(stack);
 }
 
-void	dup_check(t_stack_node *node, int num){
+void	dup_check(t_stack_node *node, int num)
+{
 	if (!node)
 		return ;
-	while (node){
+	while (node)
+	{
 		if (node->num == num)
 			is_error();
 		node = node->next;
 	}
 }
 
-void	stack_init(t_stack *stack, char **splited){
+void	sort_check(t_stack *stack)
+{
+	t_stack_node	*prev;
+	t_stack_node	*curr;
+	int				sorted;
+
+	prev = stack->first;
+	sorted = 1;
+	if (!(prev) || !(prev->next))
+		exit(0);
+	curr = prev->next;
+	while (curr)
+	{
+		if (prev->num > curr->num)
+		{
+			sorted = 0;
+			break ;
+		}
+		prev = curr;
+		curr = curr->next;
+	}
+	if (sorted)
+		exit(0);
+}
+
+void	assign_idx(t_stack *stack)
+{
+	t_stack_node	*curr;
+	t_stack_node	*target;
+	size_t			idx;
+
+	curr = stack->first;
+	while (curr)
+	{
+		target = stack->first;
+		idx = 1;
+		while (target)
+		{
+			if (target->num < curr->num)
+				idx++;
+			target = target->next;
+		}
+		curr->idx = idx;
+		curr = curr->next;
+	}
+}
+
+void	stack_init(t_stack *stack, char **splited)
+{
 	t_stack_node	*node;
 	int				idx;
-	int		num;
+	int				num;
 
 	idx = 0;
 	if (splited[idx] == 0)
 		is_error();
-	while(splited[idx]){
+	while (splited[idx])
+	{
 		num = push_swap_atoi(splited[idx]);
-		free(splited[idx]);
 		dup_check(stack->first, num);
 		node = ft_stack_new_node(num);
 		ft_enque_back(stack, node);
 		idx++;
 	}
-}
-
-void	stack_init_ordinal(t_stack *stack, t_stack_node *current){
-	t_stack_node	*node;
-	int				idx;
-
-	node = stack->first;
-	idx = 0;
-	while(idx < stack->cnt){
-
-//그냥 while문으로 돌면서
-//그 전에 있던것 중 현재 노드보다 큰것은 +1하고,
-// 작은 것은 냅둠.
-// 그중에서 현재노드의 위치를 찾으려면...
-/// 1 3 7 6 2 8 4   일때 5가 들어간다면
-//  1 3 6 5 2 7 4 일것임 여기서 5가 들어간다면
-//  1 3 7 6
-// 이때 6을 저장을 하는데, 여기서 6이되면 다시 5로 저장 (6을 뺏겼으니..)
-// 이런식으로 하면..
+	idx--;
+	while (idx >= 0)
+	{
+		free(splited[idx]);
+		idx--;
 	}
-}
-
-void	is_error(){
-	ft_printf("Error\n");
-	exit(0);
 }

@@ -1,35 +1,72 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: soljeong <soljeong@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/07 19:25:38 by soljeong          #+#    #+#             */
+/*   Updated: 2024/02/07 19:27:56 by soljeong         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	sort(t_stack *a, t_stack *b){
-	//1바구니는 a의 아래
-	//0바구니는 b의 위
-	//정렬끝나면 b의 위를 전부 a로 옮겨줌.
-	//자리수 끝날때까지 반복함.!
-	//>>i로 비트연산을 하는데.. 언제까지 할 것인지!?
-	//
-	int	i;
-	int	radix;
-	int	size_a;
-	t_stack_node	*first;
+void	sort(t_stack *a, t_stack *b)
+{
+	size_t		i;
+	size_t		size_a;
+	int			radix;
+	int			maxdigit;
 
 	i = 0;
-	first = a->first;
 	size_a = a->cnt;
 	radix = 0;
-	ft_printf("b : %d\n",b->first);
-	while(i < size_a){
-		if (((first->num) >> radix) & 1)
-			{
-				ra(a);}
-		else{
-			pb(a,b);
+	maxdigit = search_digit(a);
+	while (radix <= maxdigit)
+	{
+		i = 0;
+		while (i < size_a)
+		{
+			if (((a->first->idx) >> radix) & 1)
+				ra(a);
+			else
+				pb(a, b);
+			i++;
 		}
-		//radix가 자리의 마지막까지 sort하기
-		//num은 순서대로 변경하기..
-		//-도 고려를 해야하는데..?
-		//long long으로 변경해서 변경하여야겠음
-		//
-		first = a->first;
-		i++;
+		while (pa(b, a))
+			;
+		radix++;
 	}
+}
+
+int	search_digit(t_stack *stack)
+{
+	int	digit;
+	int	max;
+
+	digit = 1;
+	max = search_max(stack);
+	while (max > 0)
+	{
+		max /= 2;
+		digit++;
+	}
+	return (digit);
+}
+
+int	search_max(t_stack *stack)
+{
+	size_t			max;
+	t_stack_node	*curr;
+
+	curr = stack->first;
+	max = curr->idx;
+	while (curr)
+	{
+		if (max < curr->idx)
+			max = curr->idx;
+		curr = curr->next;
+	}
+	return (max);
 }
