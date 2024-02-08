@@ -23,7 +23,7 @@ void	sort(t_stack *a, t_stack *b)
 	size_a = a->cnt;
 	radix = 0;
 	maxdigit = search_digit(a);
-	if (size_a <= 3){
+	if (size_a <= 5){
 		simple_sort(a);
 		return ;
 	}

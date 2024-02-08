@@ -59,5 +59,5 @@ void			sort(t_stack *a, t_stack *b);
 void			sort_check(t_stack *stack);
 int				search_max(t_stack *stack);
 int				search_digit(t_stack *stack);
-void			simple_sort(t_stack *stack);
+void			simple_sort(t_stack *a, t_stack *b);
 #endif
